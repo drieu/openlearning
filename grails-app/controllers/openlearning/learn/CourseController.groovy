@@ -1,6 +1,5 @@
 package openlearning.learn
 
-import fr.dr.openlearning.Course
 import fr.dr.openlearning.User
 
 /**
@@ -13,6 +12,7 @@ class CourseController {
     def index() {
         log.info("Hello")
         User user = new User()
+        println "toto"
         def courses = user.getUserCourses()
         [courses:courses]
     }

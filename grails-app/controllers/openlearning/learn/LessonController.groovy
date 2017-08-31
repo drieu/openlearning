@@ -8,4 +8,11 @@ package openlearning.learn
 class LessonController {
 
     def index() { }
+
+
+    def show() {
+        log.info("Show lesson :" + params.name);
+
+        [name:params.name]
+    }
 }

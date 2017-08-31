@@ -10,6 +10,6 @@
     <g:message code="course.index.title"/>
 
     <g:each in="${courses}" var="course">
-        <p>${course?.name}</p>
+        <p><g:link controller="Lesson" action="show" params="[name: course?.name ]">${course?.name}</g:link></p>
     </g:each>
 </body>
