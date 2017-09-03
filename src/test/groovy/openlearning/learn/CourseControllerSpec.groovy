@@ -12,11 +12,10 @@ class CourseControllerSpec extends Specification implements ControllerUnitTest<C
     }
 
     void testIndex() {
-        when:""
+        when:"Invoke index of CourseController"
             controller.index()
 
-        then:"Course not null return"
-            response.text.contains("cours")
-
+        then:"Return view CourseController"
+            status == 200
     }
 }

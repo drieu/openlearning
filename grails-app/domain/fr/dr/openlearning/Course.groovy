@@ -11,20 +11,20 @@ class Course {
     /**
      * Name of the course : JAVA
      */
-    String name;
+    String name
 
     /**
      * Language of the course.
      */
-    String language;
+    String language
 
     /**
      * Course followed by a student or not.
      */
-    boolean status;
+    boolean status
 
     /**
      * Lesson list for this course.
      */
-    def lessons = []
+    static hasMany = [lessons : Lesson]
 }

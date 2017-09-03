@@ -10,11 +10,18 @@ import fr.dr.openlearning.User
 class CourseController {
 
     def index() {
-        log.info("Hello")
-        User user = new User()
-        println "toto"
-        def courses = user.getUserCourses()
-        [courses:courses]
+        log.info("index()")
+        User user = User.findByLogin("admin")
+        if(user != null) {
+            log.info(user.name)
+            //log.info(user?.courses)
+            //def courses = user.getUserCourses()
+            def courses = user.courses
+            [courses: courses]
+        } else {
+            log.info("No user !")
+            //TODO :
+        }
     }
 
 
