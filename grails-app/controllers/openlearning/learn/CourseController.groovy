@@ -15,7 +15,6 @@ class CourseController {
         if(user != null) {
             log.info(user.name)
             //log.info(user?.courses)
-            //def courses = user.getUserCourses()
             def courses = user.courses
             [courses: courses]
         } else {
