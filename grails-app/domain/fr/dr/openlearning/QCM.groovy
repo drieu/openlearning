@@ -1,10 +1,8 @@
 package fr.dr.openlearning
 
-class Exam {
+class QCM extends Exam {
 
     static constraints = {
     }
-
-    static hasMany = [questions : Question]
 
 }

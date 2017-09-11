@@ -1,10 +1,7 @@
 package fr.dr.openlearning
 
-class Exam {
+class RealExam extends Exam {
 
     static constraints = {
     }
-
-    static hasMany = [questions : Question]
-
 }

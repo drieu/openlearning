@@ -2,14 +2,18 @@ package openlearning
 
 import fr.dr.openlearning.Course
 import fr.dr.openlearning.Lesson
+import fr.dr.openlearning.QCM
+import fr.dr.openlearning.Question
 import fr.dr.openlearning.User
+import fr.dr.openlearning.exam.ExamFactory
+import fr.dr.openlearning.exam.QCMExamFactory
 
 class BootStrap {
 
     def init = { servletContext ->
 
 
-        log.info("Init course for admin")
+/*        log.info("Init course for admin")
 
         Lesson lesson = new Lesson()
         lesson.name = "JAVA SCJP 9.0"
@@ -48,6 +52,19 @@ class BootStrap {
         admin.courses = courses
         admin.save(failOnError : true)
         log.info("cours :" + courses.toListString())
+
+        log.info("Question ")
+        Question question = new Question()
+        question.text = "What is the answer ?"
+        question.choices('A':'lala','B':'lili','C':'lulu')
+        question.solutions.add('B')
+        question.solutions.add('C')
+        question.save(failOnError : true)
+
+
+        ExamFactory examFactory = new QCMExamFactory()
+        QCM qcm = examFactory.createExam()*/
+
 
     }
     def destroy = {

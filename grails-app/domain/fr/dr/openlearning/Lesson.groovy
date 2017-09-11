@@ -12,5 +12,9 @@ class Lesson {
     /**
      * Lesson name.
      */
-    String name;
+    String name
+
+    Lesson(String name) {
+        this.name = name
+    }
 }
