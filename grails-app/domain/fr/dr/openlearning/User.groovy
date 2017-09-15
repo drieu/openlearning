@@ -2,6 +2,10 @@ package fr.dr.openlearning
 
 class User {
 
+    static mapping = {
+        table name: "openuser"
+    }
+
     static constraints = {
     }
 
@@ -20,7 +24,7 @@ class User {
      */
     String password
 
-    static hasMany = [courses : Course]
+    //static hasMany = [courses : Course]
 
 
     @Override
@@ -32,9 +36,6 @@ class User {
                 ", name='" + name + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", org_grails_datastore_mapping_dirty_checking_DirtyCheckable__$changedProperties=" + org_grails_datastore_mapping_dirty_checking_DirtyCheckable__$changedProperties +
-                ", org_grails_datastore_gorm_GormValidateable__skipValidate=" + org_grails_datastore_gorm_GormValidateable__skipValidate +
-                ", org_grails_datastore_gorm_GormValidateable__errors=" + org_grails_datastore_gorm_GormValidateable__errors +
                 '}'
     }
 }
