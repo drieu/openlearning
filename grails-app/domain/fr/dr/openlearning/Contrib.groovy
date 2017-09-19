@@ -1,10 +1,10 @@
 package fr.dr.openlearning
 
-class Paper {
+class Contrib {
 
     static mapping = {
         id generator: 'increment',params:[sequence:'incr']
-        schema : "data"
+        schema : "contrib"
     }
 
     static constraints = {

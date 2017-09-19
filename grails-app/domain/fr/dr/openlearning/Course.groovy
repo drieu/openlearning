@@ -5,6 +5,11 @@ package fr.dr.openlearning
  */
 class Course {
 
+    static mapping = {
+        id generator: 'increment',params:[sequence:'incr']
+        schema : "data"
+    }
+
     static constraints = {
     }
 
@@ -26,5 +31,5 @@ class Course {
     /**
      * Lesson list for this course.
      */
-    static hasMany = [lessons : Lesson]
+    //static hasMany = [lessons : Lesson]
 }

@@ -6,6 +6,12 @@ package fr.dr.openlearning
  */
 class Lesson {
 
+    static mapping = {
+        id generator: 'increment',params:[sequence:'incr']
+        schema : "data"
+    }
+
+
     static constraints = {
     }
 

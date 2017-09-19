@@ -2,6 +2,11 @@ package fr.dr.openlearning
 
 class Question {
 
+    static mapping = {
+        id generator: 'increment',params:[sequence:'incr']
+        schema : "data"
+    }
+
     static constraints = {
     }
 
@@ -9,8 +14,8 @@ class Question {
 
     Map choices
 
-    static hasMany = [solutions : String]
-    List solutions
+   // static hasMany = [solutions : String]
+    //List solutions
 
     @Override
     String toString() {
@@ -19,7 +24,7 @@ class Question {
                 ", version=" + version +
                 ", text='" + text + '\'' +
                 ", choices=" + choices +
-                ", solutions=" + solutions +
+                //", solutions=" + solutions +
                 '}'
     }
 }
