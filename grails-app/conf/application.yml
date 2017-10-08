@@ -112,14 +112,17 @@ dataSource:
 
 environments:
     development:
-        dataSource:
-            dbCreate: create-drop
-        dataSources:
-            data:
-              dbCreate: create-drop
-            contrib:
-              dbCreate: create-drop
-
+            dataSource:
+                    dbCreate: create-drop
+          # dataSources:
+          #    openlearning:
+          #         dbCreate: update
+          #      data:
+          #          dbCreate: update
+          #      contrib:
+          #          username: contrib
+          #          password: contrib
+          #          dbCreate: update
     test:
         dataSource:
             dbCreate: update

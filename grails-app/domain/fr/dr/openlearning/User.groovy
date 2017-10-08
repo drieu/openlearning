@@ -2,11 +2,6 @@ package fr.dr.openlearning
 
 class User {
 
-    static mapping = {
-        id generator: 'sequence',params:[sequence:'incr']
-        schema : "openlearning"
-        table name: "openuser"
-    }
 
     static constraints = {
     }

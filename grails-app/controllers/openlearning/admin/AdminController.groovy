@@ -57,12 +57,14 @@ class AdminController {
         //admin.courses = courses
         admin.save(failOnError : true)
         log.info(admin.toString())
+        render "create User OK"
 
 
     }
 
     def createExam() {
         log.info("Question ")
+        String msg = ""
         Question question = new Question()
         question.text = "What is the answer ?"
         question.choices = ['A':'lala','B':'lili','C':'lulu']
@@ -72,8 +74,23 @@ class AdminController {
         question.save(failOnError : true)
         log.info(question.toString())
 
-        //ExamFactory examFactory = new QCMExamFactory()
-        //QCM qcm = examFactory.createExam()
+        ExamFactory examFactory = new QCMExamFactory()
+        log.info("QCM ")
+        QCM qcm = examFactory.createExam()
+        qcm.name = "test 1"
+        qcm.type = "TEST"
+        if (qcm == null) {
+            render "QCM is null !"
+        }
+        if (qcm.addQuestion(question)) {
+            log.info("QCM 1")
+            msg = "create exam with question OK"
+        } else {
+            log.info("QCM 2")
+            msg =" Can't add question to the exam"
+        }
+        qcm.save(failOnError : true)
+        log.info("QCM :" + qcm.questions.toString())
+        [ qcm: qcm, message: msg]
     }
-
 }
