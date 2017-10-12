@@ -101,19 +101,18 @@ hibernate:
 #    driverClassName: org.h2.Driver
 #    username: sa
 #    password: ''
-dataSource:
-  driverClassName: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/openlearning
-  username: postgres
-  password: admin
-  pooled: true
-  jmxExport: true
 
 
 environments:
     development:
             dataSource:
+                    driverClassName: org.postgresql.Driver
+                    username: postgres
+                    password: admin
+                    pooled: true
+                    jmxExport: true
                     dbCreate: create-drop
+                    url: jdbc:postgresql://localhost:5432/open
           # dataSources:
           #    openlearning:
           #         dbCreate: update

@@ -1,6 +1,6 @@
 package openlearning.learn
 
-import fr.dr.openlearning.User
+import fr.dr.openlearning.Person
 
 /**
  * Controller to manage student's courses :
@@ -11,7 +11,7 @@ class CourseController {
 
     def index() {
         log.info("index()")
-        User user = User.findByLogin("admin")
+        Person user = Person.findByLogin("admin")
         if(user != null) {
             log.info(user.name)
             //log.info(user?.courses)

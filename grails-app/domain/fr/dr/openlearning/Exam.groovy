@@ -25,17 +25,20 @@ class Exam {
     /**
      * Exam question
      */
-    static hasMany = [questions : Question]
-    List questions = []
+    //static hasMany = [questions : Question]
+    //List questions = []
 
     /**
      * Ass a question to the exam
      * @param Question question
      * @return boolean true if question is add in exam
      */
-    boolean addQuestion(Question question) {
+    /*boolean addQuestion(Question question) {
         log.debug("addQuestion() >")
         boolean bResult = false
+        if (questions == null) {
+            questions = []
+        }
         if (question != null) {
             if(!questions.contains(question)) {
                 questions.add(question)
@@ -46,7 +49,7 @@ class Exam {
             }
         }
         return bResult
-    }
+    }*/
 
     String getName() {
         return name

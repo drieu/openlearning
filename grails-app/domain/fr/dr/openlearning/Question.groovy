@@ -5,10 +5,12 @@ class Question {
 
     String text
 
-    Map choices
+    //Map choices
 
-    static hasMany = [solutions : String]
-    List solutions
+    //static hasMany = [solutions : String]
+    //List solutions
+
+
 
     @Override
     String toString() {
@@ -16,7 +18,7 @@ class Question {
                 "id=" + id +
                 ", version=" + version +
                 ", text='" + text + '\'' +
-                ", choices=" + choices +
+             //   ", choices=" + choices +
                 //", solutions=" + solutions +
                 '}'
     }

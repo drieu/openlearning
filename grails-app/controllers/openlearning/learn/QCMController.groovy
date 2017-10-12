@@ -1,13 +1,8 @@
 package openlearning.learn
 
 import fr.dr.openlearning.Course
-import fr.dr.openlearning.Exam
 import fr.dr.openlearning.Lesson
-import fr.dr.openlearning.QCM
 import fr.dr.openlearning.Question
-import fr.dr.openlearning.User
-import fr.dr.openlearning.exam.ExamFactory
-import fr.dr.openlearning.exam.QCMExamFactory
 
 class QCMController {
 

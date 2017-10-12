@@ -1,13 +1,5 @@
 package openlearning
 
-import fr.dr.openlearning.Course
-import fr.dr.openlearning.Lesson
-import fr.dr.openlearning.QCM
-import fr.dr.openlearning.Question
-import fr.dr.openlearning.User
-import fr.dr.openlearning.exam.ExamFactory
-import fr.dr.openlearning.exam.QCMExamFactory
-
 class BootStrap {
 
     def init = { servletContext ->
@@ -45,7 +37,7 @@ class BootStrap {
         courses.add(course)
         courses.add(course2)
 
-        User admin = new User()
+        Person admin = new Person()
         admin.name = "admin"
         admin.login = "admin"
         admin.password = "admin"

@@ -1,12 +1,10 @@
 package openlearning.admin
 
 import fr.dr.openlearning.Course
+import fr.dr.openlearning.Exam
 import fr.dr.openlearning.Lesson
-import fr.dr.openlearning.QCM
 import fr.dr.openlearning.Question
-import fr.dr.openlearning.User
-import fr.dr.openlearning.exam.ExamFactory
-import fr.dr.openlearning.exam.QCMExamFactory
+import fr.dr.openlearning.Person
 
 /**
  * Admin Controller.
@@ -50,47 +48,68 @@ class AdminController {
     def createUser() {
         log.info("Init course for admin")
 
-        User admin = new User()
+        Person admin = new Person()
         admin.name = "admin"
         admin.login = "admin"
         admin.password = "admin"
         //admin.courses = courses
-        admin.save(failOnError : true)
-        log.info(admin.toString())
-        render "create User OK"
+        def p = admin.save(flush : true, failOnError: true)
+        if(!p) {
+            log.info(p.errors.allErrors())
+        }
+            List persons = Person.findAll()
+        log.info(persons.toString())
+        render "create Person OK"
 
 
     }
 
     def createExam() {
-        log.info("Question ")
+        log.info("> createExam() ")
         String msg = ""
-        Question question = new Question()
-        question.text = "What is the answer ?"
-        question.choices = ['A':'lala','B':'lili','C':'lulu']
-        question.solutions = []
-        question.solutions.add('B')
-        question.solutions.add('C')
-        question.save(failOnError : true)
-        log.info(question.toString())
+        if(params.get("adm_ce_form") == "FORM") {
+            log.info("Params !")
 
-        ExamFactory examFactory = new QCMExamFactory()
-        log.info("QCM ")
-        QCM qcm = examFactory.createExam()
-        qcm.name = "test 1"
-        qcm.type = "TEST"
-        if (qcm == null) {
-            render "QCM is null !"
+            Exam qcm = null
+            Question question = new Question()
+            question.text = "AAA";//params.get('ask')
+            //question.choices = ['A':'lala','B':'lili','C':'lulu']
+            /*question.choices = [:]
+            question.choices.put('A',params.get('choice1'))
+            question.choices.put('B',params.get('choice2'))
+            */
+            /*question.solutions = []
+            question.solutions.add(params.get('solution'))
+            */
+            question.save(flush:true, failOnError : true)
+            log.info(question.toString())
+            List quests = Question.findAll()
+            log.info(quests.toString())
+
+            /*String qcmName = params.get('qcmName')
+            qcm = Exam.findByName(qcmName)
+            if (qcm == null) {
+                ExamFactory examFactory = new QCMExamFactory()
+                log.info("QCM ")
+                qcm = examFactory.createExam()
+            }
+            qcm.name = qcmName
+            qcm.type = "TEST"
+            qcm.duration = 2
+            if (qcm.addQuestion(question)) {
+                log.info("QCM 1")
+                msg = "create exam with question OK"
+            } else {
+                log.info("QCM 2")
+                msg =" Can't add question to the exam"
+            }
+            qcm.save(failOnError : true)
+            log.info("QCM :" + qcm.questions.toString())
+            */
         }
-        if (qcm.addQuestion(question)) {
-            log.info("QCM 1")
-            msg = "create exam with question OK"
-        } else {
-            log.info("QCM 2")
-            msg =" Can't add question to the exam"
-        }
-        qcm.save(failOnError : true)
-        log.info("QCM :" + qcm.questions.toString())
-        [ qcm: qcm, message: msg]
+        def results = Exam.findAll()
+        log.info("< createExam() " + results.toString())
+
+        [ qcm: results, message: msg]
     }
 }
