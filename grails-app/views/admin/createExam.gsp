@@ -62,7 +62,7 @@ List des examens :
     <g:each in="${qcm.questions}" var="question">
             <td>${question.text}</td>
             <td>${question.choices}
-            (${question.solutions})</td>
+            ()</td>
     </g:each>
     </tr>
 </g:each>

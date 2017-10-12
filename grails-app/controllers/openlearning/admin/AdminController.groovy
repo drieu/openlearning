@@ -5,6 +5,8 @@ import fr.dr.openlearning.Exam
 import fr.dr.openlearning.Lesson
 import fr.dr.openlearning.Question
 import fr.dr.openlearning.Person
+import fr.dr.openlearning.exam.ExamFactory
+import fr.dr.openlearning.exam.QCMExamFactory
 
 /**
  * Admin Controller.
@@ -86,7 +88,7 @@ class AdminController {
             List quests = Question.findAll()
             log.info(quests.toString())
 
-            /*String qcmName = params.get('qcmName')
+            String qcmName = params.get('qcmName')
             qcm = Exam.findByName(qcmName)
             if (qcm == null) {
                 ExamFactory examFactory = new QCMExamFactory()
@@ -103,9 +105,9 @@ class AdminController {
                 log.info("QCM 2")
                 msg =" Can't add question to the exam"
             }
-            qcm.save(failOnError : true)
+            qcm.save(flush:true, failOnError : true)
             log.info("QCM :" + qcm.questions.toString())
-            */
+
         }
         def results = Exam.findAll()
         log.info("< createExam() " + results.toString())

@@ -3,14 +3,19 @@ package fr.dr.openlearning
 class Question {
 
 
+
     String text
 
-    //Map choices
+    Map choices
 
     //static hasMany = [solutions : String]
     //List solutions
 
+    static belongsTo = [exam : Exam]
 
+    static constraints = {
+        exam nullable: true
+    }
 
     @Override
     String toString() {
@@ -18,7 +23,7 @@ class Question {
                 "id=" + id +
                 ", version=" + version +
                 ", text='" + text + '\'' +
-             //   ", choices=" + choices +
+                ", choices=" + choices +
                 //", solutions=" + solutions +
                 '}'
     }
