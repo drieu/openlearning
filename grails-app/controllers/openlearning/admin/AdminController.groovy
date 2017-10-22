@@ -74,15 +74,15 @@ class AdminController {
 
             Exam qcm = null
             Question question = new Question()
-            question.text = "AAA";//params.get('ask')
+            question.text = params.get('ask')
             //question.choices = ['A':'lala','B':'lili','C':'lulu']
-            /*question.choices = [:]
+            question.choices = [:]
             question.choices.put('A',params.get('choice1'))
             question.choices.put('B',params.get('choice2'))
-            */
-            /*question.solutions = []
+
+            question.solutions = []
             question.solutions.add(params.get('solution'))
-            */
+
             question.save(flush:true, failOnError : true)
             log.info(question.toString())
             List quests = Question.findAll()

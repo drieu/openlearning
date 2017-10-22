@@ -8,13 +8,18 @@ class Question {
 
     Map choices
 
-    //static hasMany = [solutions : String]
-    //List solutions
+    List<String> solutions
 
     static belongsTo = [exam : Exam]
 
     static constraints = {
         exam nullable: true
+    }
+
+    static mapping = {
+        choices joinTable: [
+                name:'question_choices'
+        ]
     }
 
     @Override

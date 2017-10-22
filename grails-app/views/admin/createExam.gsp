@@ -58,11 +58,11 @@ List des examens :
 </tr>
 <g:each in="${qcm}">
     <tr>
-        <td>A${qcm.name}</td>
+        <td>${qcm.name}</td>
     <g:each in="${qcm.questions}" var="question">
             <td>${question.text}</td>
             <td>${question.choices}
-            ()</td>
+            (${question.solutions})</td>
     </g:each>
     </tr>
 </g:each>
